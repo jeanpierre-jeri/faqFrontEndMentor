@@ -1,0 +1,174 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, $soft-violet, $soft-blue);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.container {
+    background: #fff;
+    border-radius: 30px;
+    height: 509px;
+    width: 920px;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-gap: 6rem;
+    background-image: url(/images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: 1260% 65%;
+
+    @include from($l) {
+        width: 350px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 1fr;
+        grid-gap: 0.5rem;
+        position: relative;
+        padding: 1rem;
+        height: 530px;
+        top: 15%;
+    }
+}
+
+.answer {
+    display: none;
+}
+
+.faq__container {
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+
+    @include from($l) {
+        margin-top: 0;
+    }
+}
+
+.accordion__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.question__container {
+    width: 350px;
+    border-bottom: 1px solid $light-grayish-blue;
+
+    @include from($l) {
+        width: 100%;
+    }
+}
+
+.title {
+    font-size: 3rem;
+    margin-top: 0px;
+    @include from($l) {
+        text-align: center;
+    }
+}
+
+.question__title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 1.4rem 0;
+    color: $very-dark-grayish-blue;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.4s;
+
+    img {
+        align-self: center;
+    }
+}
+
+.image__container {
+    position: relative;
+
+    @include from($l) {
+        background: url(/images/bg-pattern-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: center 590%;
+    }
+}
+
+.image {
+    background: url(/images/illustration-woman-online-desktop.svg);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 120% center;
+
+    @include from($l) {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        background-size: 72%;
+        background-position: center;
+        top: -129%;
+    }
+}
+
+.box {
+    position: absolute;
+    top: 42%;
+    left: -25%;
+
+    @include from($l) {
+        width: 55px;
+        left: 19%;
+        top: -30%;
+    }
+}
+
+.active {
+
+    & h2 {
+        font-weight: 700;
+    }
+
+    & > .answer {
+        display: block;
+        padding-bottom: 1.3rem;
+        color: $dark-grayish-blue;
+    }
+
+    & img {
+        transform: rotate(180deg);
+        transition: transform .3s ease;
+    }
+}
+
+
+
+
+
+
+.attribution { 
+    font-size: 12px; 
+    text-align: center;
+    margin: 5rem; 
+
+    @include from($l) {
+        margin-top: 10rem;
+    }
+
+    & a { 
+        color: cyan; 
+    }
+
+}
